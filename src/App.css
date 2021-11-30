@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+.home {
+  background-color: aquamarine;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-container {
+  width: 60%;
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-button {
+  border: none;
+  color: white;
+  background-color: gray;
+  width: 40%;
+  height: 3rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.register {
+  background-color: aquamarine;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register form {
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 60%;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.input-container input {
+  border: none;
+  height: 2.5rem;
+  width: 70%;
+  border-radius: 3px;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+.input-name {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.width {
+  width: 8rem;
+}
+
+.input-link {
+  font-size: 1rem;
+}
+
+.login {
+  background-color: aquamarine;
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+  width: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-input-container {
+  display: flex;
+  width: 20rem;
+  justify-content: space-between;
+}
+
+.login-input-container input {
+  border: none;
+  height: 2.5rem;
+  width: 70%;
+  border-radius: 3px;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+.login-container form {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
