@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import Main from './pages/Main';
 import Login from './pages/Login';
+import Room from './pages/Room';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path='/main'>
           <Main />
+        </Route>
+        <Route path='/room'>
+          <Room />
         </Route>
         <Route path='/'>
           <Home />

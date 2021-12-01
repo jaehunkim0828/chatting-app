@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { dbService } from '../services/firebase';
+import { useSelector } from "react-redux";
+import { RootState } from '../store';
 
-interface ParamProps {
-  user: string | null,
-  sent: string,
-}
 
-type MESSEAGE = {
-  user: string,
-  sent: string,
-  time: Date,
-  text: string,
-}
-
-function Room({ user, sent }: ParamProps) {
+function Room() {
   const [ms, setMs] = useState<any[]>([]);
   const [text, setText] =useState('');
 
@@ -21,6 +12,9 @@ function Room({ user, sent }: ParamProps) {
     const { value } = e.target;
     setText(value);
   }
+
+  const user = useSelector((state: RootState) => state.roomReducer.user);
+  const sent = useSelector((state: RootState) => state.roomReducer.sent);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
