@@ -11,8 +11,6 @@ function Main(props: any) {
 
   const { history } = props;
   const [userList, setUserList] = useState<Array<string>>([]);
-  const [sentt, setSentt] = useState('');
-  const [bool, setBool] = useState(false);
 
   const logout = () => {
     localStorage.removeItem('token');

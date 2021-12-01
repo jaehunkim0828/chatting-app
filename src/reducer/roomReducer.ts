@@ -5,8 +5,8 @@ import {
 } from '../action/roomAct';
 
 export type InitialState = {
-  user: any;
-  sent: any;
+  user: string;
+  sent: string;
 };
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
   sent: '',
 };
 
-export function roomReducer(state = initialState, action: ROOM): InitialState {
+export function roomReducer(state = initialState, action: any): InitialState {
   switch (action.type) {
     case USER_SUCCESS : {
       return { ...state,  user: action.payload };

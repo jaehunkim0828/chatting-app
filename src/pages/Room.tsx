@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
 import { dbService } from '../services/firebase';
 import { useSelector } from "react-redux";
 import { RootState } from '../store';
+import SpeechBubble from '../components/SpeechBubble';
+import '../css/Room.css';
 
 
 function Room() {
@@ -22,6 +25,7 @@ function Room() {
     const obj = { user, time, text, sent };
     setMs([...ms, obj]);
     dbService.collection('messages').add(obj);
+    setText('');
   }
 
   useEffect(() => {
@@ -51,13 +55,13 @@ function Room() {
       </div>
       <form
         onSubmit={onSubmit}
+        className='room-main-container'
       >
-        {ms.map( data => (
-          <div>
-            <div>{data.user}</div>
-            <div>{data.text}</div>
-          </div>
-        ))}
+        <div className='room-main'>
+          {ms.map( ({user, text}) => (
+            <SpeechBubble user={user} text={text} me={user === localStorage.getItem('name') ? true : false}/>
+          ))}
+        </div>
         <input onChange={onChange} value={text}/>
         <button type='submit'>전송</button>
       </form>

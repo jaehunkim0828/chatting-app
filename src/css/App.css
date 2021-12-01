@@ -1,5 +1,5 @@
 .home {
-  background-color: aquamarine;
+  background-color: #D3E4CD;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -33,7 +33,7 @@
 }
 
 .register {
-  background-color: aquamarine;
+  background-color: #D3E4CD;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -80,7 +80,7 @@
 }
 
 .login {
-  background-color: aquamarine;
+  background-color: #D3E4CD;
   height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 function Home({ history }: any) {
 

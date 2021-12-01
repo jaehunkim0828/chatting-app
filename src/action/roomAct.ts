@@ -3,7 +3,7 @@ export const SENT_SUCCESS = 'SENT_SUCCESS';
 
 export type ROOM = { 
   type: 'USER_SUCCESS'|'SENT_SUCCESS',
-  payload: string | null,
+  payload: any,
 };
 
 export function sentQuiz(sent: string): ROOM {
