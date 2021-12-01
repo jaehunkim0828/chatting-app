@@ -1,0 +1,10 @@
+.main {
+  background-color: aquamarine;
+  height: 100vh;
+}
+
+.main nav {
+  display: flex;
+  padding: 2rem 3rem;
+  justify-content: space-between;
+}

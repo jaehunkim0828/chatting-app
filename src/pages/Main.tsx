@@ -2,13 +2,24 @@ import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import { dbService } from '../services/firebase';
+import Room from '../components/Room';
+import '../css/Main.css';
 
 function Main(props: any) {
   const { history } = props;
   const [userList, setUserList] = useState<Array<string>>([]);
+  const [messeageList, setMessagesList] = useState<Array<any>>([]);
+  const [sentt, setSentt] = useState('');
+  const [bool, setBool] = useState(false);
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
+  }
+
+  const goRoom = async (sent: string) => {
+    setSentt(sent);
+    setBool(true);
   }
 
   useEffect(() => {
@@ -27,13 +38,18 @@ function Main(props: any) {
   }, [])
 
   return (
-    <div>
+    <div className='main'>
+      <nav>
+        <div>Logo</div>
+        <Link to='/'><button onClick={logout}>로그아웃</button></Link>
+      </nav>
       <div>
-        유저 목록: 
-        <div>{userList.map(user => <button>{user}</button>)}</div>
+        <div>
+          {bool ? <Room user={localStorage.getItem('name')} sent={sentt}/> : <div></div>}
+        </div>
+        <div>유저 목록: </div> 
+        <div>{userList.map(user => <button onClick={() => {setBool(false); goRoom(user)}}>{user}</button>)}</div>
       </div>
-      <div><Link to='/'><button onClick={logout}>로그아웃</button></Link></div>
-      <div></div>
     </div>
   )
 }
