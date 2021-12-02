@@ -3,18 +3,21 @@ import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import { authService, dbService } from '../services/firebase';
-require('dotenv').config()
+import navLogo from '../images/smallLogo.png';
+import rightLogo from '../images/loginLogo.png';
 
 
 function Register (props: any) {
-  type REGISTER = { email: string, password: string, name: string };
+  type REGISTER = { email: string, password: string, name: string, pwCheck: string, };
   const { history } = props;
 
   const [user, setUser] = useState<REGISTER>({
     email: '',
     password: '',
     name: '',
+    pwCheck: '',
   });
+
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target; 
@@ -64,28 +67,43 @@ function Register (props: any) {
 
 
   return (
-    <div className="register">
-      <form
-        onSubmit={onSubmit}
-      >
-        <div>회원가입</div>
-        <div className="input-container">
-          <div className="input-name">이메일: </div>
-          <input placeholder='Email' type='email' value={user.email} name='email' onChange={onChange}/>
+    <div className="login">
+      <div className="login-left">
+        <img src={navLogo} alt='login-logo'/>
+        <div className="login-left-content">
+          <p>Sign Up</p>
+          <div>Chat App은 실시간 채팅 기반 커뮤니케이션 플랫폼입니다.</div>
+          <div>언제든 원하는 시간 편안한 장소에서 친구와 소통하세요.</div>
+          <div>당신이 쉬어갈 수 있는 공간 소통할 수 있는 공간 Chat App</div>
         </div>
-        <div className="input-container">
-          <div className="input-name">비밀번호: </div>
-          <input placeholder='Password' type='password' value={user.password} name='password' onChange={onChange}/>
-        </div>
-        <div className="input-container">
-          <div className="input-name">이름: </div>
-          <input placeholder='name' type='name' value={user.name} name='name' onChange={onChange}/>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end', width: '20rem', justifyContent: 'space-between'}}>
-          <button className="home-button width" type='submit'>회원가입</button>
-          <Link className="input-link" to='/login'>이미 아이디가 있다면...</Link>
-        </div>
-      </form>
+      </div>
+      <div className="register-right">
+        <form
+          onSubmit={onSubmit}
+        >
+          <img src={rightLogo} alt='right-logo' />
+          <div className="register-input-container">
+            <div className="input-name">이메일 </div>
+            <input placeholder='Enter Email' type='email' value={user.email} name='email' onChange={onChange}/>
+          </div>
+          <div className="register-input-container">
+            <div className="input-name">비밀번호 </div>
+            <input placeholder='Enter Password' type='password' value={user.password} name='password' onChange={onChange}/>
+          </div>
+          <div className="register-input-container">
+            <div className="input-name">비밀번호 확인 </div>
+            <input placeholder='Check Password' type='password' value={user.password} name='password' onChange={onChange}/>
+          </div>
+          <div className="register-input-container">
+            <div className="input-name">이름 </div>
+            <input placeholder='Enter Username' type='name' value={user.name} name='name' onChange={onChange}/>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between'}}>
+            <button className="home-button width margin" type='submit'>회원가입</button>
+          </div>
+        </form>
+        <Link className="input-link" to='/login'>이미 아이디가 있다면...</Link>
+      </div>
     </div>
   )
 }
