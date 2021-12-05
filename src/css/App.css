@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+
 .home {
   background-color: #B9D7EA;
   height: 100vh;

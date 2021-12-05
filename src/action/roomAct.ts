@@ -6,10 +6,10 @@ export type ROOM = {
   payload: any,
 };
 
-export function sentQuiz(sent: string): ROOM {
+export function sentAct(sent: string): ROOM {
   return { type: "SENT_SUCCESS", payload: sent, }
 };
 
-export function userQuiz(user: string | null): ROOM {
+export function userAct(user: string | null): ROOM {
   return { type: "USER_SUCCESS", payload: user, }
 };

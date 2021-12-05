@@ -1,4 +1,3 @@
-import { type } from "os";
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
@@ -31,6 +30,9 @@ function Register (props: any) {
     e.preventDefault();
     let name;
     let email;
+    if (user.password !== user.pwCheck) {
+      return window.alert('비밀번호가 다릅니다.');
+    }
     if (user.email === '' || user.password === '' || user.name === '') {
       return window.alert('빈틈없이 작성해주십시오.');
     }
@@ -63,7 +65,7 @@ function Register (props: any) {
     if (token) {
       history.push('/main');
     }
-  },[])
+  }, [])
 
 
   return (
@@ -92,7 +94,7 @@ function Register (props: any) {
           </div>
           <div className="register-input-container">
             <div className="input-name">비밀번호 확인 </div>
-            <input placeholder='Check Password' type='password' value={user.password} name='password' onChange={onChange}/>
+            <input placeholder='Check Password' type='password' value={user.pwCheck} name='pwCheck' onChange={onChange}/>
           </div>
           <div className="register-input-container">
             <div className="input-name">이름 </div>

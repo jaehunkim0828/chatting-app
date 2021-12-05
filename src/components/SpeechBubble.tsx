@@ -10,20 +10,21 @@ type BUBBLE = {
 function SpeechBubble({user, text, me}: BUBBLE) {
 
   const bubbleStyle = {
-    backgroundColor: user === localStorage.getItem('name') ? '#344CB7' : 'gray',
+    backgroundColor: user === localStorage.getItem('name') ? '#B9D7EA' : '#ECEFEF',
     borderRadius: user === localStorage.getItem('name') ?'10px 10px 2px 10px' : '10px 10px 10px 2px',
+    margin: '0.4rem 0 0 0',
   }
 
-  const container = {
-    width: '100%',
-    display: 'flex',
-    justifyContent: user === localStorage.getItem('name') ? 'flex-end' : 'flex-start',
-    padding: '0 0 1rem 0',
-  }
   return (
-    <div style={container}>
+    <div style={{
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: user === localStorage.getItem('name') ? 'flex-end' : 'flex-start',
+      padding: '0 0 0.5rem 0',
+    }}>
+      <div>{user}</div>
       <div style={bubbleStyle} className='bubble'>
-        <div>{user}</div>
         <div>{text}</div>
       </div>
     </div>

@@ -1,0 +1,42 @@
+.modal {
+  border: 3px solid #B9D7EA;
+  background-color: #B9D7EA;
+}
+
+.modal-lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.modal-list {
+  display: flex;
+  padding: 5% 10%;
+  color: white;
+  font-weight: 600;
+  width: 10rem;
+}
+
+.modal-list input {
+  margin-right: 1rem;
+}
+
+.modal-button {
+  display: flex;
+  width: 90%;
+  padding: 5%;
+  justify-content: flex-end;
+}
+
+.modal-button button {
+  border: none;
+  box-shadow: 0 3px 3px gray;
+  border-radius: 5px;
+  height: 1.8rem;
+  width: 4rem;
+  background-color: #769FCD;
+  color: white;
+  font-weight: 600;
+}

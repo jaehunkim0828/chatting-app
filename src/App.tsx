@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Main from './pages/Main';
 import Login from './pages/Login';
 import Room from './pages/Room';
+import GroupRoom from './pages/GroupRoom';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path='/room'>
           <Room />
+        </Route>
+        <Route path='/group-room'>
+          <GroupRoom />
         </Route>
         <Route path='/'>
           <Home />

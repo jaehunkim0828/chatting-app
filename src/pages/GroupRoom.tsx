@@ -9,34 +9,30 @@ import smallLogo from '../images/smallLogo.png';
 import { Link, withRouter } from 'react-router-dom';
 import rabbit from '../images/main-rabbit.png';
 import back from '../images/back.png';
-import plus from '../images/plus.png';
-import GroupMmodal from '../components/GroupModal';
 
 
-function Room(props: any) {
+function GroupRoom(props: any) {
   const { history } = props;
+  const me = localStorage.getItem('name');
   const [ms, setMs] = useState<any[]>([]);
   const [text, setText] =useState('');
-  const [groupChat, setGroupChat] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setText(value);
   }
 
-  const user = useSelector((state: RootState) => state.roomReducer.user);
-  const sent = useSelector((state: RootState) => state.roomReducer.sent);
-
-  const modal = () => {
-    setGroupChat(true);
-  };
+  const crew = useSelector((state: RootState) => state.groupReducer.crew);
+  const name = useSelector((state: RootState) => state.groupReducer.name);
+  
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const time = new Date().getTime();
-    const obj = { user, time, text, sent };
+    
+    const obj = { user: me, time, text, crew };
     setMs([...ms, obj]);
-    dbService.collection('messages').add(obj);
+    dbService.collection('group').add(obj);
     setText('');
   }
 
@@ -50,17 +46,15 @@ function Room(props: any) {
       window.alert('로그인을 해주세요.');
       return history.push('/');
     }
-    dbService.collection('messages')
+    dbService.collection('group')
       .orderBy('time', 'desc')
       .onSnapshot(d => {
         const listMs: React.SetStateAction<any[]> = [];
         d.docs.forEach(doc => {
-          if (doc.data().user === user && doc.data().sent === sent) {
+          const crewItem = doc.data().crew.sort();
+          if (crew.toString() === crewItem.toString()) {
             listMs.push(doc.data());
           }
-          if (doc.data().user === sent && doc.data().sent === user) {
-            listMs.push(doc.data());
-          } 
         })
         setMs(listMs);
       })
@@ -80,10 +74,9 @@ function Room(props: any) {
           <img onClick={() => history.push('/main')} src={back} alt='back'  style={{ width: '2rem', height: '2rem', cursor: 'pointer'}}/>
           <div>
             <img src={rabbit} alt='rabbit' style={{ width: '3rem', height: '2rem'}} />
-            <div>{sent}</div>
+            <div>{name}</div>
           </div>
-          <img onClick={modal} src={plus} alt='plus' style={{cursor: 'pointer'}}/>
-          
+          <div></div>
         </div>
         <div className='room-main'>
           {ms.map( ({user, text}) => (
@@ -95,9 +88,8 @@ function Room(props: any) {
           <button className='button-text'type='submit'>보내기</button>
         </div>
       </form>
-      {groupChat && <GroupMmodal sent={sent} setGroupChat={setGroupChat}/>}
     </div>
   )
 }
 
-export default withRouter(Room);
+export default withRouter(GroupRoom);

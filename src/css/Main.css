@@ -1,10 +1,138 @@
 .main {
-  background-color: #D3E4CD;
+  background-color: #F7FBFC;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* opacity: 0.5; */
+  z-index: 1;
 }
 
 .main nav {
   display: flex;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   justify-content: space-between;
+  background-color: #B9D7EA;
+  flex: 0 1 auto;
+}
+
+.main nav button {
+  border: none;
+  background-color: #B9D7EA;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #585858;
+  cursor: pointer;
+}
+
+.sign-out {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.main nav img {
+  width: 10rem;
+}
+
+.user-list-container {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.user-list {
+  background-color: #F2F7FF;
+  border: 5px solid#B9D7EA;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  height: 85%;
+}
+
+.selete {
+  color: #695f5f;
+  border: none;
+  background-color: #F2F7FF;
+  height: 4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.list {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #B9D7EA;
+  margin-bottom: 1rem;
+  padding: 0.8rem 0.6rem;
+  background-color: #F7FBFC;
+  border-radius: 3px;
+  align-items: center;
+}
+
+section img {
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.list section {
+  display: flex;
+}
+
+.list button {
+  border: none;
+  background-color: #769FCD;
+  color: white;
+  border-radius: 3px;
+  width: 5rem;
+  height: 2rem;
+  box-shadow: 0 1px 4px gray;
+  cursor: pointer;
+}
+
+.lists {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  align-items: center;
+}
+
+.main-list-container {
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.main-list-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+  padding: 5% 0;
+  color: #585858;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.main-list-left img {
+  width: 13rem;
+}
+
+.user-group {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.driver {
+  height: 60%;
+  width: 2px;
+  background-color: #585858;
 }
